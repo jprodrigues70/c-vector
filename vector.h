@@ -169,6 +169,23 @@ do {                                              \
 	vector_set_size((vec), vector_size(vec) + 1); \
 } while(0)
 
+
+#define vector_helper_compare(a, b) (a == b)
+
+static inline int vector_find_string(char ** vec, char * value) {
+    int i = 0;
+
+    for (; i < vector_size(vec); i++)
+    {
+        if (vector_helper_compare(value, vec[i]))
+        {
+            return i;
+        }
+    }
+
+    return -1;
+};
+
 #endif
 
 #endif
